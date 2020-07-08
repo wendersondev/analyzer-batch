@@ -1,0 +1,27 @@
+# Configuração do file watcher
+file-watcher:
+  path: /home/wenderson/data/in/
+  pathWriter: /root/data/out/
+  thread-pool: 1
+  chunk.size: 1000
+
+spring:
+  batch:
+    initializer:
+      enabled: false
+    job:
+      enabled: false
+  application:
+    name: batch-analyzer
+  datasource:
+    url: jdbc:h2:mem:AZ;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+    h2:
+      console:
+        enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
